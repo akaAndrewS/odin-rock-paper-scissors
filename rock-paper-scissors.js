@@ -5,6 +5,12 @@
 // sets 'computerChoice' to correct option based on 'result'
 // returns 'computerChoice'
 
+
+/* FIXME change return value to either:
+        0 - if computer won
+        1 - if user won
+        2 - if tie
+ */
 // function playRound() that takes player's choice and calls getComputerChoice() and returns result of comparison
 // variable 'result' to be used to store the result
 // get user's input and set variable 'userChoice' to input
@@ -35,3 +41,22 @@
 //      ELSE
 //          'result' set to "You win! Scissors beat paper!"
 // return 'result'
+
+// function game() that calls calls the playRound() function until either the player or computer have won three games
+// variable 'round' set to 0 that will determine when the game is over
+// variable 'playerScore' set to 0 that holds player's score
+// variable 'computerScore' set to 0 that holds computer's score
+// WHILE 'round' is not equal to 5
+//      call playRound function and set variable 'result' to the return value
+//      switch statement to check 'result'
+//          case 0 
+//              increase 'computerScore' and 'round' by one
+//              display in console that computer won
+//              break from switch
+//          case 1 
+//              increases 'playerScore' and 'round' by one
+//              display in console that player won
+//              break from switch
+//          case 2
+//              display in console that it was a tie
+//              break from switch
