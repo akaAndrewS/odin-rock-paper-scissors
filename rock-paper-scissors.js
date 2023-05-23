@@ -1,9 +1,24 @@
 // function getComputerChoice() that represents computer's choice and returns either rock, paper or scissors
-// variable 'computerChoice' to be used to store the computer's choice
-// variable 'result' to be used to store result, default is 0
-// sets 'result' to a random number between 0-2
-// sets 'computerChoice' to correct option based on 'result'
-// returns 'computerChoice'
+function getComputerChoice() {
+    // variable 'computerChoice' to be used to store the computer's choice
+    let computerChoice;
+    // variable 'result' set to a random number between 0-2
+    let result = Math.floor(Math.random() * 3);
+    // sets 'computerChoice' to correct option based on 'result'
+    switch (result) {
+        case 0:
+            computerChoice = 'rock';
+            break;
+        case 1:
+            computerChoice = 'scissors';
+            break;
+        case 2:
+            computerChoice = 'paper';
+            break;
+    }
+    // returns 'computerChoice'
+    return computerChoice;
+}
 
 // function playRound() that takes player's choice and calls getComputerChoice() and returns result of comparison
 // variable 'result' to be used to store the result
