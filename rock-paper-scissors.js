@@ -94,20 +94,55 @@ function playRound() {
 }
 
 // function game() that calls calls the playRound() function until either the player or computer have won three games
-// variable 'round' set to 0 that will determine when the game is over
-// variable 'playerScore' set to 0 that holds player's score
-// variable 'computerScore' set to 0 that holds computer's score
-// WHILE 'round' is not equal to 5
-//      call playRound function and set variable 'result' to the return value
-//      switch statement to check 'result'
-//          case 0 
-//              increase 'computerScore' and 'round' by one
-//              display in console that computer won
-//              break from switch
-//          case 1 
-//              increases 'playerScore' and 'round' by one
-//              display in console that player won
-//              break from switch
-//          case 2
-//              display in console that it was a tie
-//              break from switch
+function game() {
+    // variable 'round' set to 0 that will determine when the game is over
+    let round = 0;
+    // variable 'playerScore' set to 0 that holds player's score
+    let playerScore = 0;
+    // variable 'computerScore' set to 0 that holds computer's score
+    let computerScore = 0;
+    // WHILE 'round' is not equal to 5
+    while (round != 5) {
+        // call playRound function and set variable 'result' to the return value
+        let result = playRound();
+        // switch statement to check 'result'
+        switch(result) {
+            // case 0 
+            case 0:
+                // increase 'computerScore' and 'round' by one
+                computerScore++;
+                round++;
+                // display in console that computer won
+                console.log(`You lose! \nYou: ${playerScore} \nComputer: ${computerScore}`);
+                // break from switch
+                break;
+            // case 1 
+            case 1:
+                // increases 'playerScore' and 'round' by one
+                playerScore++;
+                round++;
+                // display in console that player won
+                console.log(`You win! \nYou: ${playerScore} \nComputer: ${computerScore}`);
+                // break from switch
+                break;
+            // case 2
+            case 2:
+                // display in console that it was a tie
+                console.log(`A tie!! \nYou: ${playerScore} \nComputer: ${computerScore}`);
+                // break from switch
+                break;
+        }
+    }
+
+    // Display final results of the game
+    // IF player won
+    if( playerScore > computerScore) {
+        // display vicotry message
+        console.log(`You win!! \nYou: ${playerScore} \nComputer: ${computerScore} \nCongratualtions!!`);
+    }
+    // ELSE
+    else {
+        // display lose message
+        console.log(`You lose! \nYou: ${playerScore} \nComputer: ${computerScore} \nBetter luck next time!`);
+    }
+}
