@@ -21,35 +21,77 @@ function getComputerChoice() {
 }
 
 // function playRound() that takes player's choice and calls getComputerChoice() and returns result of comparison
-// variable 'result' to be used to store the result
-// get user's input and set variable 'userChoice' to input
-// variable 'computerChoice' set to return from getComputerChoice() call
-// Ensure that 'userChoice' is an eligible choice
-// WHILE typeOf 'userChoice' is not a string && 'userChoice' is not equal to rock paper or scissors
-//      WHILE typeOf 'userChoice' is not a string
-//          get user's input and set variable 'userChoice' to input
-//      set 'userChoice' to lowercase
-//      WHILE 'userChoice' is not equal to rock paper or scissors
-//          get user's input and set variable 'userChoice' to input
-// compare the two options and set 'result' to option
-// IF the choices are the same
-//      'result' set to 2
-// ELSE IF 'userChoice' is rock
-//      IF 'computerChoice' is paper
-//          'result' set to 0
-//      ELSE
-//          'result' set to 1
-// ELSE IF 'userChoice' is paper
-//      IF 'computerChoice' is scissors
-//          'result' set to 0
-//      ELSE
-//          'result' set to 1
-// ELSE IF 'userChoice' is scissors
-//      IF 'computerChoice' is rock
-//          'result' set to 0
-//      ELSE
-//          'result' set to 1
-// return 'result'
+function playRound() {
+    // variable 'result' to be used to store the result
+    let result;
+    // get user's input and set variable 'userChoice' to input
+    let userChoice = window.prompt("Rock, Paper or Scissors?");
+    // variable 'computerChoice' set to return from getComputerChoice() call
+    let computerChoice = getComputerChoice();
+    // Ensure that 'userChoice' is an eligible choice
+    while (true) {
+        //set 'userChoice' to lowercase
+        userChoice = userChoice.toLowerCase();
+        // IF 'userChoice' is not a valid choice
+        if(!(userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors')) {
+            // get user's input and set variable 'userChoice' to input
+            userChoice = window.prompt("Invalid choice! Rock, Paper or Scissors?");
+        }
+        //ELSE
+        else {
+            // break out of WHILE loop
+            break;
+        }   
+    }
+
+    // compare the two options and set 'result' to option
+    // IF the choices are the same
+    if(userChoice === computerChoice) {
+        // 'result' set to 2
+        result = 2;
+    }
+    // ELSE IF 'userChoice' is rock
+    else if(userChoice === 'rock') {
+        // IF 'computerChoice' is paper
+        if (computerChoice === 'paper') {
+            // 'result' set to 0
+            result = 0;
+        }
+        // ELSE
+        else {
+            // 'result' set to 1
+            result = 1;
+        }
+    }
+    // ELSE IF 'userChoice' is paper
+    else if(userChoice === 'paper') {
+        //      IF 'computerChoice' is scissors
+        if (computerChoice === 'scissors') {
+            // 'result' set to 0
+            result = 0;
+        }
+        // ELSE
+        else {
+            // 'result' set to 1
+            result = 1;
+        }
+    }
+    // ELSE IF 'userChoice' is scissors
+    else if(userChoice === 'scissors') {
+        // IF 'computerChoice' is rock
+        if (computerChoice === 'rock') {
+            // 'result' set to 0
+            result = 0;
+        }
+        // ELSE
+        else {
+            // 'result' set to 1
+            result = 1;
+        }
+    }
+    // return 'result'
+    return result;
+}
 
 // function game() that calls calls the playRound() function until either the player or computer have won three games
 // variable 'round' set to 0 that will determine when the game is over
