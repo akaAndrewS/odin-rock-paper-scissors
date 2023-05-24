@@ -1,4 +1,5 @@
-// function getComputerChoice() that represents computer's choice and returns either rock, paper or scissors
+// function getComputerChoice() that represents computer's choice
+// returns 'computerChoice', a string that is either rock, paper or scissors
 function getComputerChoice() {
     // variable 'computerChoice' to be used to store the computer's choice
     let computerChoice;
@@ -20,7 +21,8 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// function playRound() that takes player's choice and calls getComputerChoice() and returns result of comparison
+// function playRound() that gets player's choice and calls getComputerChoice()
+// returns 'result', an integer that represents the winner of the round
 function playRound() {
     // variable 'result' to be used to store the result
     let result;
@@ -28,7 +30,7 @@ function playRound() {
     let userChoice = window.prompt("Rock, Paper or Scissors?");
     // variable 'computerChoice' set to return from getComputerChoice() call
     let computerChoice = getComputerChoice();
-    // Ensure that 'userChoice' is an eligible choice
+    // WHILE loop to ensure that 'userChoice' is an eligible choice
     while (true) {
         //set 'userChoice' to lowercase
         userChoice = userChoice.toLowerCase();
@@ -37,7 +39,7 @@ function playRound() {
             // get user's input and set variable 'userChoice' to input
             userChoice = window.prompt("Invalid choice! Rock, Paper or Scissors?");
         }
-        //ELSE
+        // ELSE 'userChoice' is a valid choice
         else {
             // break out of WHILE loop
             break;
@@ -57,7 +59,7 @@ function playRound() {
             // 'result' set to 0
             result = 0;
         }
-        // ELSE
+        // ELSE 'computerChoice' is scissors
         else {
             // 'result' set to 1
             result = 1;
@@ -65,12 +67,12 @@ function playRound() {
     }
     // ELSE IF 'userChoice' is paper
     else if(userChoice === 'paper') {
-        //      IF 'computerChoice' is scissors
+        // IF 'computerChoice' is scissors
         if (computerChoice === 'scissors') {
             // 'result' set to 0
             result = 0;
         }
-        // ELSE
+        // ELSE 'computerChoice' is rock
         else {
             // 'result' set to 1
             result = 1;
@@ -83,7 +85,7 @@ function playRound() {
             // 'result' set to 0
             result = 0;
         }
-        // ELSE
+        // ELSE 'computeChoice' is paper
         else {
             // 'result' set to 1
             result = 1;
@@ -93,7 +95,7 @@ function playRound() {
     return result;
 }
 
-// function game() that calls calls the playRound() function until either the player or computer have won three games
+// function game() that calls calls the playRound() function until five rounds have been played without a tie
 function game() {
     // variable 'round' set to 0 that will determine when the game is over
     let round = 0;
@@ -107,7 +109,7 @@ function game() {
         let result = playRound();
         // switch statement to check 'result'
         switch(result) {
-            // case 0 
+            // case 0: computer has won the round
             case 0:
                 // increase 'computerScore' and 'round' by one
                 computerScore++;
@@ -116,7 +118,7 @@ function game() {
                 console.log(`You lose! \nYou: ${playerScore} \nComputer: ${computerScore}`);
                 // break from switch
                 break;
-            // case 1 
+            // case 1: player has won the round
             case 1:
                 // increases 'playerScore' and 'round' by one
                 playerScore++;
@@ -125,7 +127,7 @@ function game() {
                 console.log(`You win! \nYou: ${playerScore} \nComputer: ${computerScore}`);
                 // break from switch
                 break;
-            // case 2
+            // case 2: round was a tie
             case 2:
                 // display in console that it was a tie
                 console.log(`A tie!! \nYou: ${playerScore} \nComputer: ${computerScore}`);
@@ -140,9 +142,12 @@ function game() {
         // display vicotry message
         console.log(`You win!! \nYou: ${playerScore} \nComputer: ${computerScore} \nCongratualtions!!`);
     }
-    // ELSE
+    // ELSE computer won
     else {
         // display lose message
         console.log(`You lose! \nYou: ${playerScore} \nComputer: ${computerScore} \nBetter luck next time!`);
     }
 }
+
+// Calls game() to start a game
+game();
